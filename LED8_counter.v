@@ -19,7 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module LED8_counter(
     input sys_init_ctrl,
     input fpga_clk,
@@ -54,6 +53,4 @@ module LED8_counter(
             cover_led[0] <= wrk_stat;
         end
     end 
-    
-    
 endmodule

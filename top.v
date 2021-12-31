@@ -65,10 +65,6 @@ module CMB_top(
     assign pause    = pb_in[2] | (~wb_in[2]);
     assign trg      = pb_in[1] | (~wb_in[1]);
     assign rst      = pb_in[0] | (~wb_in[0]);
-    //assign sys_init = pb_in[3];
-    //assign pause    = pb_in[2];
-    //assign trg      = pb_in[1];
-    //assign rst      = pb_in[0];
     assign VCC      = 1;
     assign VCC2     = 1;
     
