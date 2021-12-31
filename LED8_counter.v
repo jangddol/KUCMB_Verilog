@@ -23,20 +23,36 @@
 module LED8_counter(
     input sys_init_ctrl,
     input fpga_clk,
-    input clk_1Hz,
-    output reg [3:0] led,
     
     input sys_init,
     input trg,
-    input rot_en,
-    input wrk_stat
+    input rst,
+    input wrk_stat,
+    input pause_out,
+    input adc_trg,
+    input [3:0] rf_sw_out,
+    
+    output reg [3:0] led,
+    output reg [8:0] cover_led
     );
       
     always @(posedge fpga_clk) begin
-        led[3] <= sys_init;
-        led[2] <= trg;
-        led[1] <= rot_en;
-        led[0] <= wrk_stat;
+        if (sys_init_ctrl) begin
+            led[3:0] <= 4'b0000;
+            cover_led[8:0] <= 9'b0000_0000_0;
+            end
+        else begin
+            led[3] <= sys_init;
+            led[2] <= trg;
+            led[1] <= rst;
+            led[0] <= wrk_stat;
+            cover_led[8:5] <= rf_sw_out;
+            cover_led[4] <= adc_trg;
+            cover_led[3] <= sys_init;
+            cover_led[2] <= pause_out;
+            cover_led[1] <= trg;
+            cover_led[0] <= wrk_stat;
+        end
     end 
     
     
