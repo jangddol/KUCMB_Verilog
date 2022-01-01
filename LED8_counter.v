@@ -26,13 +26,13 @@ module LED8_counter(
     input sys_init,
     input trg,
     input rst,
-    input wrk_stat,
-    input pause_out,
+    input wrk_stat, // from FSM3
+    input pause_out, // from FSM3
     input adc_trg,
-    input [3:0] rf_sw_out,
+    input [3:0] rf_sw_out, // from FSM3
     
     output reg [3:0] led,
-    output reg [8:0] cover_led
+    output reg [8:0] cover_led // LED on the Control Board
     );
       
     always @(posedge fpga_clk) begin

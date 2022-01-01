@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
+// Module for controling external 7 segment display tm1637
 module tm1637_external_connect
     #(
         parameter integer divider = 2500

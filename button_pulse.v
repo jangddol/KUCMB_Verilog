@@ -19,6 +19,9 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+// This module is degigned with FSM (Finite States Machine) method.
+    // It is recommended to search WHAT IS FSM.
+// This module make button signal stabilized.
 module button_pulse(fpga_clk, i_clk, button, button_edge);
     input fpga_clk;
     input i_clk;
