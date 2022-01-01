@@ -61,19 +61,35 @@ module CMB_top(
     wire adc_en;
     
     wire [15:0] bcd_int;
+    
+    // If you use Control Board, use this code.
     assign sys_init = pb_in[3] | (~wb_in[3]);
     assign pause    = pb_in[2] | (~wb_in[2]);
     assign trg      = pb_in[1] | (~wb_in[1]);
     assign rst      = pb_in[0] | (~wb_in[0]);
+    
+    // If you don't use Control Board, use this code.
+    //assign sys_init = pb_in[3];
+    //assign pause    = pb_in[2];
+    //assign trg      = pb_in[1];
+    //assign rst      = pb_in[0];
+    
     assign VCC      = 1;
     assign VCC2     = 1;
     
     wire [3:0] sw_comb;
+    
+    // If you use Control Board, use this code.
     assign sw_comb[3] = sw_in[3] | wsw_in[3];
     assign sw_comb[2] = sw_in[2] | wsw_in[2];
     assign sw_comb[1] = sw_in[1] | wsw_in[1];
     assign sw_comb[0] = sw_in[0] | wsw_in[0];
     
+    // If you don't use Control Board, use this code.
+    //assign sw_comb[3] = sw_in[3];
+    //assign sw_comb[2] = sw_in[2];
+    //assign sw_comb[1] = sw_in[1];
+    //assign sw_comb[0] = sw_in[0];
     
     assign debug_out = wrk_stat;
     assign rot_clk = rot_en & stp_clk;
